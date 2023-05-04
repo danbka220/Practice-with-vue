@@ -24,7 +24,7 @@ function get_data($query) {
         } 
         echo json_encode($response); exit;
     } else {
-      echo "";
+      echo "0";
     }
 
     $conn->close();
