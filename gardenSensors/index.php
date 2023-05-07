@@ -1,6 +1,6 @@
 <?php
 $test=json_decode(file_get_contents("php://input"), true);
-get_data("INSERT INTO info(temperature,humidity) VALUES('{$test['temp']}','{$test['hum']}')");
+get_data("INSERT INTO info(temperature,humidity,luminosity) VALUES('{$test['temp']}','{$test['hum']}','{$test['light']}')");
 function get_data($query) {
     $servername = "localhost";
     $username = "root";

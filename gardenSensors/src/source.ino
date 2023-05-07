@@ -18,6 +18,9 @@ int temperature = 0;
 int humidity = 0;
 String data;
 
+const float GAMMA = 0.7; 
+const float RL10 = 50; 
+
 void setup() {
   Serial.begin(115200);
   delay(4000);
@@ -38,11 +41,15 @@ void loop() {
   if ((currentMs - prevMs) > interval) {
     //Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
+      int analogValue = analogRead(33);
+      float voltage = analogValue / 4095. * 5;
+      float resistance = 2000 * voltage / (1 - voltage / 5);
+      float lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA));
+
       HTTPClient http;   
       String serverPath = serverName + "?temperature=24.37";
       http.begin(serverPath);  //Specify destination for HTTP request
-      String data = "{\"temp\":\""+(String)dht.getTemperature()+"\",\"hum\":\""+(String)dht.getHumidity()+"\",\"light\":\"1005.14\"}";
-      Serial.println(data);
+      String data = "{\"temp\":\""+(String)dht.getTemperature()+"\",\"hum\":\""+(String)dht.getHumidity()+"\",\"light\":\""+(String)lux+"\"}";
       http.addHeader("Content-Type", "application/json");
       int httpResponseCode = http.POST(data);   //Send the actual POST request
       
