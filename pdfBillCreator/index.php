@@ -44,12 +44,7 @@
                     <input type="number" name="bankInvoiceNumber" id="bankInvoiceNumber" placeholder="Лицевой счет" required>
                     <input type="number" name="companyInvoiceNumber" id="companyInvoiceNumber" placeholder="Расчетный счет" required>
                 </div>
-                <div class="data-inner">
-                    <input type="text" name="companyBank" id="companyBank" placeholder="Банк получателя" required>
-                    <input type="number" name="companyBik" id="companyBik" placeholder="БИК" required>
-                    <input type="number" name="bankInvoiceNumber" id="bankInvoiceNumber" placeholder="Лицевой счет" required>
-                    <input type="number" name="companyInvoiceNumber" id="companyInvoiceNumber" placeholder="Расчетный счет" required>
-                </div>
+                
             </div>
             <!--  -->
             <hr color='gray' width='95%' height="2px"> 
