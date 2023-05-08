@@ -5,7 +5,7 @@
 #include <HTTPClient.h>
 
 byte mac[] = { 0xA8, 0x61, 0x0A, 0xAE, 0xF7, 0x31 };
-String serverName = "http://192.168.31.120:80/index.php";
+String serverName = "http://192.168.31.120:80/sendFromSensors.php";
 
 DHTesp dht;
 const int DHT_PIN = 15;
